@@ -8,7 +8,6 @@ phases:
       - echo "Installing dependencies..."
       - pip install robotframework
       - pip install robotframework-requests
-      - pip install robotframework-operating-system
       - pip install requests
 
   pre_build:
