@@ -15,7 +15,6 @@ phases:
       - echo "Setting up environment..."
       - python3 --version
       - pip3 --version
-      - robot --version
       - export BASE_URL=https://jsonplaceholder.typicode.com
 
   build:
