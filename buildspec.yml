@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.9 # Asegúrate de que esta versión sea compatible con tu proyecto
+      python: 3.9
     commands:
       - echo "Installing dependencies..."
       - pip install robotframework
@@ -14,26 +14,24 @@ phases:
   pre_build:
     commands:
       - echo "Setting up environment..."
-      # Configura variables necesarias si aplica (puedes usar SSM o secretos)
       - python3 --version
       - pip3 --version
       - robot --version
       - export BASE_URL=https://jsonplaceholder.typicode.com
-     
 
   build:
     commands:
       - echo "Running Robot Framework tests..."
-      - robot mentorShip.robot
+      - mkdir -p output
+      - robot -d output mentorShip.robot
 
   post_build:
     commands:
       - echo "Archiving test results..."
       - mkdir -p artifacts
-      - cp output/* artifacts/  # Copia los resultados generados por Robot Framework para almacenarlos como artefactos
+      - cp output/* artifacts/
 
 artifacts:
   files:
-    - artifacts/**  # Sube los resultados al bucket S3 configurado para tu pipeline
+    - artifacts/**
   discard-paths: no
-
