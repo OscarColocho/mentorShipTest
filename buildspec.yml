@@ -15,7 +15,7 @@ phases:
     commands:
       - echo "Setting up environment..."
       # Configura variables necesarias si aplica (puedes usar SSM o secretos)
-	  - python3 --version
+      - python3 --version
       - pip3 --version
       - robot --version
       - export BASE_URL=https://jsonplaceholder.typicode.com
