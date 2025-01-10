@@ -35,3 +35,8 @@ artifacts:
   files:
     - artifacts/**
   discard-paths: no
+
+env:
+  variables:
+    OUTPUT_FILE: results/output.xml
+    SNS_TOPIC_ARN: arn:aws:sns:us-east-1:123456789012:TestResultsNotifications
