@@ -38,5 +38,5 @@ artifacts:
 
 env:
   variables:
-    OUTPUT_FILE: results/output.xml
+    OUTPUT_FILE: output/output.xml
     SNS_TOPIC_ARN: arn:aws:sns:us-east-1:535002847900:PipelineSampleNotification
