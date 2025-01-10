@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-01-10T16:40:19.025098" rpa="false" schemaversion="5">
+<suite id="s1" name="mentorShip" source="C:\Users\oscar.colocho\Documents\mentorShipTest\mentorShip.robot">
+<test id="s1-t1" name="Get All Posts" line="11">
+<kw name="GET">
+<msg time="2025-01-10T16:40:19.061929" level="FAIL">No keyword with name 'GET' found. Did you mean:
+    BuiltIn.Get Time
+    OperatingSystem.Get File</msg>
+<var>${response}</var>
+<arg>${BASE_URL}${RESOURCE_PATH}</arg>
+<status status="FAIL" start="2025-01-10T16:40:19.061892" elapsed="0.000083">No keyword with name 'GET' found. Did you mean:
+    BuiltIn.Get Time
+    OperatingSystem.Get File</status>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2025-01-10T16:40:19.062186" elapsed="0.000022"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-01-10T16:40:19.062342" elapsed="0.000015"/>
+</kw>
+<doc>Test to fetch all posts from the API.</doc>
+<status status="FAIL" start="2025-01-10T16:40:19.060835" elapsed="0.001686">No keyword with name 'GET' found. Did you mean:
+    BuiltIn.Get Time
+    OperatingSystem.Get File</status>
+</test>
+<test id="s1-t2" name="Create A New Post" line="17">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-01-10T16:40:19.063772" level="INFO">${data} = {'title': 'Robot Test', 'body': 'This is a test post.', 'userId': '1'}</msg>
+<var>${data}</var>
+<arg>title=Robot Test</arg>
+<arg>body=This is a test post.</arg>
+<arg>userId=1</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-01-10T16:40:19.063538" elapsed="0.000256"/>
+</kw>
+<kw name="POST">
+<msg time="2025-01-10T16:40:19.064736" level="FAIL">No keyword with name 'POST' found.</msg>
+<var>${response}</var>
+<arg>${BASE_URL}${RESOURCE_PATH}</arg>
+<arg>json=${data}</arg>
+<status status="FAIL" start="2025-01-10T16:40:19.064691" elapsed="0.000080">No keyword with name 'POST' found.</status>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2025-01-10T16:40:19.064993" elapsed="0.000020"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${response_data}</var>
+<arg>dict(${response.json()})</arg>
+<arg>modules=json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-01-10T16:40:19.065159" elapsed="0.000015"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Created Post: ${response_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-01-10T16:40:19.065318" elapsed="0.000017"/>
+</kw>
+<doc>Test to create a new post in the API.</doc>
+<status status="FAIL" start="2025-01-10T16:40:19.063262" elapsed="0.002225">No keyword with name 'POST' found.</status>
+</test>
+<test id="s1-t3" name="Update A Post" line="26">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-01-10T16:40:19.066647" level="INFO">${data} = {'id': '1', 'title': 'Updated Title', 'body': 'Updated body text.', 'userId': '1'}</msg>
+<var>${data}</var>
+<arg>id=1</arg>
+<arg>title=Updated Title</arg>
+<arg>body=Updated body text.</arg>
+<arg>userId=1</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-01-10T16:40:19.066398" elapsed="0.000290"/>
+</kw>
+<kw name="PUT">
+<msg time="2025-01-10T16:40:19.067456" level="FAIL">No keyword with name 'PUT' found.</msg>
+<var>${response}</var>
+<arg>${BASE_URL}${RESOURCE_PATH}/1</arg>
+<arg>json=${data}</arg>
+<status status="FAIL" start="2025-01-10T16:40:19.067423" elapsed="0.000076">No keyword with name 'PUT' found.</status>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2025-01-10T16:40:19.067716" elapsed="0.000024"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${response_data}</var>
+<arg>dict(${response.json()})</arg>
+<arg>modules=json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-01-10T16:40:19.067892" elapsed="0.000024"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Updated Post: ${response_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-01-10T16:40:19.068176" elapsed="0.000031"/>
+</kw>
+<doc>Test to update an existing post in the API.</doc>
+<status status="FAIL" start="2025-01-10T16:40:19.066124" elapsed="0.002275">No keyword with name 'PUT' found.</status>
+</test>
+<test id="s1-t4" name="Delete A Post" line="34">
+<kw name="DELETE">
+<msg time="2025-01-10T16:40:19.070005" level="FAIL">No keyword with name 'DELETE' found.</msg>
+<var>${response}</var>
+<arg>${BASE_URL}${RESOURCE_PATH}/1</arg>
+<status status="FAIL" start="2025-01-10T16:40:19.069984" elapsed="0.000048">No keyword with name 'DELETE' found.</status>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2025-01-10T16:40:19.070181" elapsed="0.000019"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Post deleted successfully.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-01-10T16:40:19.070335" elapsed="0.000015"/>
+</kw>
+<doc>Test to delete a post from the API.</doc>
+<status status="FAIL" start="2025-01-10T16:40:19.069146" elapsed="0.001328">No keyword with name 'DELETE' found.</status>
+</test>
+<status status="FAIL" start="2025-01-10T16:40:19.027003" elapsed="0.044204"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="4" skip="0" id="s1" name="mentorShip">mentorShip</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-01-10T16:40:19.053851" level="ERROR">Error in file 'C:\Users\oscar.colocho\Documents\mentorShipTest\mentorShip.robot' on line 2: Importing library 'RequestsLibrary' failed: ModuleNotFoundError: No module named 'RequestsLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\oscar.colocho\AppData\Local\Programs\Python\Python313\Scripts\robot.exe
+  C:\Users\oscar.colocho\AppData\Local\Programs\Python\Python313\python313.zip
+  C:\Users\oscar.colocho\AppData\Local\Programs\Python\Python313\DLLs
+  C:\Users\oscar.colocho\AppData\Local\Programs\Python\Python313\Lib
+  C:\Users\oscar.colocho\AppData\Local\Programs\Python\Python313
+  C:\Users\oscar.colocho\AppData\Local\Programs\Python\Python313\Lib\site-packages</msg>
+</errors>
+</robot>
