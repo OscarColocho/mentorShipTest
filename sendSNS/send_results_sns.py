@@ -7,7 +7,7 @@ SNS_TOPIC_ARN = os.getenv('SNS_TOPIC_ARN')  # Get the ARN of the topic from an e
 sns_client = boto3.client('sns')
 
 # Path to the output.xml file
-output_file = os.getenv('OUTPUT_FILE', 'output.xml')
+output_file = os.getenv('OUTPUT_FILE', 'output/output.xml')
 
 try:
     # Parse the XML file
