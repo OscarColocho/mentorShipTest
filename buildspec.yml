@@ -9,6 +9,7 @@ phases:
       - pip install robotframework
       - pip install robotframework-requests
       - pip install requests
+      - pip install robotframework boto3
 
   pre_build:
     commands:
@@ -22,6 +23,7 @@ phases:
       - echo "Running Robot Framework tests..."
       - mkdir -p output
       - robot -d output mentorShip.robot
+      - python sendSNS/send_results_sns.py
 
   post_build:
     commands:
